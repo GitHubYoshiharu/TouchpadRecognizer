@@ -1,0 +1,27 @@
+﻿namespace TouchpadRecognizer
+{
+    internal class TouchpadContactCreator
+    {
+        public int? ContactId { get; set; }
+        public int? X { get; set; }
+        public int? Y { get; set; }
+
+        public bool TryCreate(out TouchpadContact contact)
+        {
+            if (ContactId.HasValue && X.HasValue && Y.HasValue)
+            {
+                contact = new TouchpadContact(ContactId.Value, X.Value, Y.Value);
+                return true;
+            }
+            contact = default;
+            return false;
+        }
+
+        public void Clear()
+        {
+            ContactId = null;
+            X = null;
+            Y = null;
+        }
+    }
+}

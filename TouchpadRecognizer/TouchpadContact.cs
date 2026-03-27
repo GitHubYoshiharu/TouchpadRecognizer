@@ -1,0 +1,12 @@
+﻿namespace TouchpadRecognizer
+{
+    public struct TouchpadContact
+    {
+        public int ContactId { get; }
+        public int X { get; }
+        public int Y { get; }
+
+        public TouchpadContact(int contactId, int x, int y) =>
+            (this.ContactId, this.X, this.Y) = (contactId, x, y);
+    }
+}
