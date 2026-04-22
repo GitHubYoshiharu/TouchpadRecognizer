@@ -33,7 +33,7 @@ public class TouchpadRecognizerForm : Form
         _menu = new ContextMenuStrip();
         var confirmItem = new ToolStripMenuItem("入力されるキーの確認");
         confirmItem.Click += (s, e) => {
-            var confirmForm = new KeyConfirmForm
+            using var confirmForm = new KeyConfirmForm
             {
                 Icon = icon
             };
@@ -41,7 +41,7 @@ public class TouchpadRecognizerForm : Form
         };
         var settingItem = new ToolStripMenuItem("ユーザー設定");
         settingItem.Click += (s, e) => {
-            var settingForm = new UserSettingsForm
+            using var settingForm = new UserSettingsForm
             {
                 Icon = icon
             };
