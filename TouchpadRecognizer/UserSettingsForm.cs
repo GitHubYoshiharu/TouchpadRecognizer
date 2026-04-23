@@ -13,7 +13,9 @@
                 "UserSettingsForm", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                var tmp = UserSettings.Instance.AhkFilePath;
                 UserSettings.Instance.Reset();
+                UserSettings.Instance.AhkFilePath = tmp;
                 centerDiameterRatioNud.Value = UserSettings.Instance.CenterDiameterRatio;
                 inactivityTimeoutMsNud.Value = UserSettings.Instance.InactivityTimeoutMs;
                 acceptableDelayMsNud.Value = UserSettings.Instance.AcceptableDelayMs;
