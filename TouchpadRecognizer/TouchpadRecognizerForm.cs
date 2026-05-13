@@ -101,17 +101,6 @@ public class TouchpadRecognizerForm : Form
                 return;
             }
 
-            // === 並列モード
-            if(contacts.Length >= 2)
-            {
-                _currentFrameContacts.Clear();
-                _currentFrameContacts.AddRange(contacts);
-                ProcessFrame(_currentFrameContacts.ToArray());
-                base.WndProc(ref m);
-                return;
-            }
-
-            // === ハイブリッドモード、または並列モードでコンタクトが1つの場合
             //   並列モードの場合、本当なら1回目の呼び出し時点でコンタクトグループを確定できる（＝ProcessFrame()を呼べる）が、
             //   コンタクトが1つの場合はレポート数がハイブリッドモードと同じになり、区別できないため、ハイブリッドモードと同様、次のフレームで確定させる。
             if (_currentScanTime is null)
